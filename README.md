@@ -6,11 +6,14 @@ My weather scraper is a responsive web application which is used to know the wea
 <ul>
   <li>By stealing other weather webiste's html contents. which is not recomended</li>
   
+  <p></p>
+  
   <p>The first one is implemented using the contents from the site http://www.weather-forecast.com <p>
   
   <p> The returned contents are sliced and extracted required weather desciption </p>
   
-  <li> By using API from http://www.openweathermap.org<li>
+  <li> By using API from http://www.openweathermap.org</li>
+  <p></p>
   
   <p>They provide api's just by signing up </p>
   
