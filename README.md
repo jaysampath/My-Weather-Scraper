@@ -24,8 +24,6 @@ My weather scraper is a responsive web application which is used to know the wea
   
 </ul>  
   <h2>Application</h2>
-  
-  <h3>Approach 1 </h3>
 
 <img src = "php2.png" alt ="website-image">
  
@@ -33,7 +31,7 @@ My weather scraper is a responsive web application which is used to know the wea
   
   <img src = "php3.png" alt ="website-image">
 
-  <h3>Approach 1 </h3>
+  <h3>Approach 2</h3>
   
   <img src = "php4.png" alt ="website-image">
   
