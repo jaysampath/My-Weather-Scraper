@@ -5,42 +5,29 @@
     
     if ($_GET['city']) {
         
-        $city = str_replace(' ', '', $_GET['city']);
-        
-        $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
-        
-        
-        if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+ $urlcontents =  file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".urlencode($_GET['city'])."&appid=7218dbc410422f8af53a399da4cd728a");
     
-            $error = "That city could not be found.";
-
-        } else {
+  $weatherarray =   json_decode($urlcontents,true);
+  
+ // print_r($weatherarray);
+   
+   if($weatherarray['cod']==200){
+   
+  
+   $weather = "The weather in ".$_GET['city']." is currently '".$weatherarray['weather'][0]['description']."'.";
         
-        $forecastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
-        
-        $pageArray = explode('(1&ndash;3 days)</div><p class="b-forecast__table-description-content"><span class="phrase">', $forecastPage);
-        // $weather = $$pageArray;   
-        if (sizeof($pageArray) > 1) {
-        
-                $secondPageArray = explode('</span></p></td>', $pageArray[1]);
-            
-                if (sizeof($secondPageArray) > 1) {
-
-                    $weather = $secondPageArray[0];
-                    
-                } else {
-                    
-                    $error = "That city could not be found.";
-                    
-                }
-            
-            } else {
-            
-                $error = "That city could not be found.";
-            
-            }
-        
-        }
+    $tempinc = intval( $weatherarray['main']['temp']-273);
+    
+    $weather .= " The temperatur is ".$tempinc."&degC";
+    
+    $windspeed = $weatherarray['wind']['speed'];
+    
+    $weather .= " and the wind speed is ".$windspeed."m/s";
+    
+   }
+   else{
+       $error = "Invalid city";
+   }
         
     }
 
