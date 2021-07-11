@@ -44,4 +44,4 @@ My weather scraper is a responsive web application which is used to know the wea
   
 
 
-<p> see this application (method 2) in action <a href="http://jayasampathwebhosting-com.stackstaging.com/projects/weather-scraper/method2/">here </a></p>
+<p> see this application (method 2) in action <a href="https://my-weather-scraper.herokuapp.com/">here </a></p>
